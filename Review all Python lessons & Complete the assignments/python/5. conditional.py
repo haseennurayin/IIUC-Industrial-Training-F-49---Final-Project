@@ -1,8 +1,8 @@
 # Python Conditional Logic: Mastering Control Flow
 
 """
-Author: Kalim Amzad Chy
-Email: kalim.amzad.chy@gmail.com
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
 This Python script is designed to provide an in-depth understanding of Python's conditional statements.
 We will explore:
