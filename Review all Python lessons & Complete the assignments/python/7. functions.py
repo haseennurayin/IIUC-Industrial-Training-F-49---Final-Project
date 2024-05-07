@@ -1,8 +1,8 @@
 # Python Functions: Comprehensive Guide
 
 """
-Author: Kalim Amzad Chy
-Email: kalim.amzad.chy@gmail.com
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
 This Python script provides a comprehensive guide to functions in Python.
 We will explore:
