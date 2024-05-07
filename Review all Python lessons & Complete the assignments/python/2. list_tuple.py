@@ -1,8 +1,8 @@
 # Advanced Python: Lists and Tuples
 
 """
-Author: Kalim Amzad Chy
-Email: kalim.amzad.chy@gmail.com
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
 This Python script is designed to provide an in-depth understanding of Python lists and tuples.
 We will explore:
