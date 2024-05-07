@@ -1,8 +1,8 @@
 # Python Basics: Variables and Data Types
 
 """
-Author: Kalim Amzad Chy
-Email: kalim.amzad.chy@gmail.com
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
 This Python script is designed to teach you the basics of variables and data types in Python.
 We will cover:
