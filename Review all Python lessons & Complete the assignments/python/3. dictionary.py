@@ -1,8 +1,8 @@
 # Advanced Python: Dictionaries
 
 """
-Author: Kalim Amzad Chy
-Email: kalim.amzad.chy@gmail.com
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
 This Python script is designed to provide a comprehensive understanding of Python dictionaries.
 We will explore:
