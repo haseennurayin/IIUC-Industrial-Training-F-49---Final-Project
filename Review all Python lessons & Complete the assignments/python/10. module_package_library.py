@@ -1,17 +1,17 @@
 # # Python Modules, Packages, Libraries, and Pip: In-Depth Guide
 
-# """
-# Author: Kalim Amzad Chy
-# Email: kalim.amzad.chy@gmail.com
+"""
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
-# This Python script provides an in-depth guide to understanding modules, packages, libraries, and the use of pip in Python.
-# We will explore:
-# 1. What are modules, packages, and libraries?
-# 2. How to create and use them.
-# 3. Introduction to pip and how to use it to manage Python packages.
+This Python script provides an in-depth guide to understanding modules, packages, libraries, and the use of pip in Python.
+We will explore:
+1. What are modules, packages, and libraries?
+2. How to create and use them.
+3. Introduction to pip and how to use it to manage Python packages.
 
-# Each section includes detailed explanations, examples, and assignments.
-# """
+Each section includes detailed explanations, examples, and assignments.
+"""
 
 # # Section 1: Modules
 # # ------------------
