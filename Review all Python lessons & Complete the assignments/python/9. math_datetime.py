@@ -1,17 +1,17 @@
 # # Python Math and Datetime Modules: In-Depth Guide
 
-# """
-# Author: Kalim Amzad Chy
-# Email: kalim.amzad.chy@gmail.com
+"""
+Author: Haseen Nurayin
+Email: c193268@ugrad.iiuc.ac.bd
 
-# This Python script provides an in-depth guide to the math and datetime modules in Python.
-# We will explore:
-# 1. Common mathematical functions and constants in the math module.
-# 2. Handling dates and times using the datetime module.
-# 3. Practical examples and real-world applications of both modules.
+This Python script provides an in-depth guide to the math and datetime modules in Python.
+We will explore:
+1. Common mathematical functions and constants in the math module.
+2. Handling dates and times using the datetime module.
+3. Practical examples and real-world applications of both modules.
 
-# Each section includes detailed explanations, examples, and assignments.
-# """
+Each section includes detailed explanations, examples, and assignments.
+"""
 
 # # Section 1: Math Module
 # # ----------------------
