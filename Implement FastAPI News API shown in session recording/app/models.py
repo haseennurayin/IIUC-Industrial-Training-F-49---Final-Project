@@ -5,20 +5,16 @@ from .database import Base
 class News(Base):
     __tablename__ = "news"
     id = Column(Integer, primary_key=True, index=True)
-    #publisher_website = Column(String, index=True)
     datetime = Column(DateTime)
     title = Column(String, index=True)
     body = Column(Text)
     link = Column(String)
-    
     category_id = Column(Integer, ForeignKey('categories.id'))
     reporter_id = Column(Integer, ForeignKey('reporters.id'))
     publisher_id = Column(Integer, ForeignKey('publishers.id'))
-
     category = relationship("Category")
     reporter = relationship("Reporter")
     publisher = relationship("Publisher")
-
 
 class Category(Base):
     __tablename__ = "categories"
@@ -44,5 +40,4 @@ class Image(Base):
     id = Column(Integer, primary_key=True, index=True)
     news_id = Column(Integer, ForeignKey('news.id'))
     url = Column(String)
-
     news = relationship("News")
