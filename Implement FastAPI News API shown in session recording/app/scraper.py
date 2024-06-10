@@ -1,56 +1,79 @@
-import datetime
-from requests_html import HTMLSession
-from .database import SessionLocal
-from .crud import create_news
-from .schemas import NewsCreate, News
+from pydantic import BaseModel
+from datetime import datetime
+from typing import List, Optional
 
-def single_news_scraper(url: str):
-    session = HTMLSession()
-    try:
-        response = session.get(url)
-        # response.html.render()  # This will download Chromium if not found
+class CategoryBase(BaseModel):
+    name: str
+    description: str
 
-        publisher_website = url.split('/')[2]
-        publisher = publisher_website.split('.')[-2]
-        title = response.html.find('h1', first=True).text
-        reporter = response.html.find('.contributor-name', first=True).text
-        datetime_element = response.html.find('time', first=True)
-        news_datetime = datetime_element.attrs['datetime']
-        category = response.html.find('.print-entity-section-wrapper', first=True).text
-        content = '\n'.join([p.text for p in response.html.find('p')])
-        img_tags = response.html.find('img')
-        images = [img.attrs['src'] for img in img_tags if 'src' in img.attrs]
-        news_datetime = datetime.datetime.now()
+class CategoryCreate(CategoryBase):
+    pass
 
-        print(f"Scraped news from {url}")
-        print(f"Title: {title}")
-        print(f"Reporter: {reporter}")
-        print(f"Date: {news_datetime}")
-        print(f"Category: {category}")
-        print(f"Images: {images}")
+class Category(CategoryBase):
+    id: int
 
+    class Config:
+        from_attributes = True
 
-        return NewsCreate(
-            publisher_website=publisher_website,
-            news_publisher=publisher,
-            title=title,
-            news_reporter=reporter,
-            datetime=news_datetime,
-            link=url,
-            news_category=category,
-            body=content,
-            images=images,
-        )
-    except Exception as e:
-        print(f"An error occurred: {e}")
-    finally:
-        session.close()
+class ReporterBase(BaseModel):
+    name: str
+    email: str
 
-def scrape_and_store_news(url: str, db: SessionLocal):
-    news_data = single_news_scraper(url)
-    inserted_news = ""
-    if news_data:
-        inserted_news = create_news(db=db, news=news_data)
-    db.close()
+class ReporterCreate(ReporterBase):
+    pass
 
-    return inserted_news
+class Reporter(ReporterBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class PublisherBase(BaseModel):
+    name: str
+    email: str
+    website: Optional[str] = None
+
+class PublisherCreate(PublisherBase):
+    pass
+
+class Publisher(PublisherBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class ImageBase(BaseModel):
+    news_id: int
+    url: str
+
+class ImageCreate(ImageBase):
+    pass
+
+class Image(ImageBase):
+    id: int
+
+    class Config:
+        from_attributes = True
+
+class NewsBase(BaseModel):
+    title: str
+    body: str
+    link: str
+    datetime: datetime
+
+    category: Optional[Category] = None
+    reporter: Optional[Reporter] = None
+    publisher: Optional[Publisher] = None
+
+class NewsCreate(NewsBase):
+    news_publisher: str
+    news_reporter: str
+    news_category: str
+    publisher_website: str
+    images: List[str] = []
+
+class News(NewsBase):
+    id: int
+
+    class Config:
+        from_attributes = True
