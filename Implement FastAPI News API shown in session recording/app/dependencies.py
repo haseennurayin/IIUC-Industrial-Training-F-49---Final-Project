@@ -4,5 +4,10 @@ def get_db():
     db = SessionLocal()
     try:
         yield db
+    except Exception as e:
+        raise e
+    else:
+        pass
     finally:
-        db.close()
+        if db is not None:
+            db.close()
