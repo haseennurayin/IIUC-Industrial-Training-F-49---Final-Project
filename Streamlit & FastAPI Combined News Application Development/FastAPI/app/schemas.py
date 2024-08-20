@@ -1,7 +1,6 @@
 from pydantic import BaseModel
 from datetime import datetime
-from typing import List, Optional   
-
+from typing import List, Optional
 
 class CategoryBase(BaseModel):
     name: str
@@ -56,18 +55,14 @@ class Image(ImageBase):
     class Config:
         from_attributes = True
 
-
 class NewsBase(BaseModel):
-    # publisher_website: str
     title: str
     body: str
     link: str
     datetime: datetime
-
     category: Optional[Category] = None
     reporter: Optional[Reporter] = None
     publisher: Optional[Publisher] = None
-
 
 class NewsCreate(NewsBase):
     news_publisher: str
@@ -76,14 +71,11 @@ class NewsCreate(NewsBase):
     publisher_website: str
     images: List[str] = []
 
-
 class News(NewsBase):
     id: int
 
     class Config:
         from_attributes = True
-
-
 
 class SummaryFast(BaseModel):
     news_id: int
@@ -92,14 +84,11 @@ class SummaryBase(BaseModel):
     summary_text: str
     news_id: int
 
-
 class SummaryCreate(SummaryBase):
     pass
-    # news_body: str 
 
 class Summary(SummaryBase):
     id: int
 
     class Config:
         from_attributes = True
-
