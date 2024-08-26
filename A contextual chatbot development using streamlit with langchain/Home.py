@@ -1,10 +1,6 @@
 import streamlit as st
 
-st.set_page_config(
-    page_title="Langchain Chatbot",
-    page_icon='💬',
-    layout='wide'
-)
+st.set_page_config(page_title="Langchain Chatbot", page_icon='💬', layout='wide')
 
 st.header("Chatbot Implementations with Langchain")
 st.write("""
@@ -12,6 +8,7 @@ st.write("""
 [![linkedin ](https://img.shields.io/badge/Shashank%20Deshpande-blue?logo=linkedin&color=gray)](https://www.linkedin.com/in/shashank-deshpande/)
 ![Visitors](https://api.visitorbadge.io/api/visitors?path=https%3A%2F%2Flangchain-chatbot.streamlit.app&label=Visitors&labelColor=%235d5d5d&countColor=%231e7ebf&style=flat)
 """)
+
 st.write("""
 Langchain is a powerful framework designed to streamline the development of applications using Language Models (LLMs). It provides a comprehensive integration of various components, simplifying the process of assembling them to create robust applications.
 
