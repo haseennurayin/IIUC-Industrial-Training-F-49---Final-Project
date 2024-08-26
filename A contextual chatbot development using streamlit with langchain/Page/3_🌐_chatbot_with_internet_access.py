@@ -1,6 +1,5 @@
 import utils
 import streamlit as st
-
 from langchain import hub
 from langchain_openai import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
@@ -15,31 +14,17 @@ st.write('Equipped with internet access, enables users to ask questions about re
 st.write('[![view source code ](https://img.shields.io/badge/view_source_code-gray?logo=github)](https://github.com/shashankdeshpande/langchain-chatbot/blob/master/pages/3_%F0%9F%8C%90_chatbot_with_internet_access.py)')
 
 class InternetChatbot:
-
     def __init__(self):
         utils.sync_st_session()
         self.llm = utils.configure_llm()
 
-    # @st.cache_resource(show_spinner='Connecting..')
-    def setup_agent(_self):
-        # Define tool
+    def setup_agent(self):
         ddg_search = DuckDuckGoSearchRun()
-        tools = [
-            Tool(
-                name="DuckDuckGoSearch",
-                func=ddg_search.run,
-                description="Useful for when you need to answer questions about current events. You should ask targeted questions",
-            )
-        ]
-
-        # Get the prompt - can modify this
+        tools = [Tool(name="DuckDuckGoSearch", func=ddg_search.run, description="Useful for answering questions about current events.")]
         prompt = hub.pull("hwchase17/react-chat")
-
-        # Setup LLM and Agent
         memory = ConversationBufferMemory(memory_key="chat_history")
-        agent = create_react_agent(_self.llm, tools, prompt)
-        agent_executor = AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=False)
-        return agent_executor, memory
+        agent = create_react_agent(self.llm, tools, prompt)
+        return AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=False), memory
 
     @utils.enable_chat_history
     def main(self):
@@ -58,7 +43,5 @@ class InternetChatbot:
                 st.write(response)
                 utils.print_qa(InternetChatbot, user_query, response)
 
-
 if __name__ == "__main__":
-    obj = InternetChatbot()
-    obj.main()
+    InternetChatbot().main()
